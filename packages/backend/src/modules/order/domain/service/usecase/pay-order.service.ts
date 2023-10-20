@@ -1,3 +1,4 @@
+import { OrderStatusEnum } from '../../model/const/order-status.enum';
 import Order from '../../model/entity/order.orm-entity';
 import { OrderRepositoryInterface } from '../../port/db/order.repository.interface';
 import { Injectable } from '@nestjs/common';
@@ -17,7 +18,7 @@ export class PayOrderService {
             throw new Error(`Order with id ${Id} is already paid`);
         }
 
-        order.status = 'Paid';
+        order.status = OrderStatusEnum.Paid;
 
         return this.orderRepository.save(order);
     }

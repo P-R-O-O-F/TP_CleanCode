@@ -2,6 +2,7 @@ import { OrderRepositoryInterface } from '../../port/db/order.repository.interfa
 import Order from '../../model/entity/order.orm-entity';
 import { Injectable } from '@nestjs/common';
 import OrderRepository from '@src/modules/order/infrastructure/repository/order.repository';
+import { OrderStatusEnum } from '../../model/const/order-status.enum';
 
 @Injectable()
 export class CancelOrderService {
@@ -12,10 +13,10 @@ export class CancelOrderService {
         if (!order) {
             throw new Error(`Order with id ${orderId} not found`);
         }
-        if (order.status === 'cancelled') {
+        if (order.status === OrderStatusEnum.Canceled) {
             throw new Error(`Order with id ${orderId} has already been cancelled`);
         }
-        order.status = 'Cancelled';
+        order.status = OrderStatusEnum.Canceled;
         return this.orderRepository.save(order);
     }
 }
