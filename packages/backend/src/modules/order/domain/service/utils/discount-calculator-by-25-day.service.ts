@@ -1,4 +1,4 @@
-import { DiscountCalculatorServiceInterface } from '@src/modules/order/utils/discount-calculator.interface';
+import { DiscountCalculatorServiceInterface } from '@src/modules/order/domain/service/utils/discount-calculator.interface';
 
 export class DiscountCalculatorBy25DayService implements DiscountCalculatorServiceInterface {
   calculate(order, total) {

@@ -9,8 +9,10 @@ services:
       - POSTGRES_USER=${DB_USERNAME}
       - POSTGRES_PASSWORD=${DB_PASSWORD}
       - POSTGRES_DB=${DB_DATABASE}
+      - PGDATA=/tmp
       - POSTGRES_HOST=${DB_HOST}
       - POSTGRES_PORT=${DB_PORT}
+
     container_name: clean-archi-postgres-db
     volumes:
       - ./packages/backend/docker/pgdata:/var/lib/postgresql/data
