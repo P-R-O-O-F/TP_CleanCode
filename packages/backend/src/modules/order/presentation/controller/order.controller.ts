@@ -52,7 +52,7 @@ export default class OrderController {
     return new OrderPresenter(cancelledOrder);
   }
 
-  @Delete('/:id')
+  @Delete('/:id/delete')
   async deleteOrder(@Param('id') id: string): Promise<OrderPresenter> {
     const deletedOrder = await this.DeleteOrderService.deleteOrder(id);
 

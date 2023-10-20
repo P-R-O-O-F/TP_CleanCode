@@ -16,7 +16,6 @@ describe('Get All Orders after date', () => {
 
   it('Should return no orders of there are none in the db', async () => {
     const getOrders = await request(app.getHttpServer()).get(`/api/orders/after-date/2021-01-01`);
-    console.log(getOrders);
     expect(getOrders.status).toBe(200);
     expect(getOrders.body).toEqual([]);
   });
